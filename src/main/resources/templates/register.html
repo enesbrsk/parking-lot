@@ -1,0 +1,36 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+  <h1 class="h3 mb-3 font-weight-normal">Member Registration</h1>
+  <form autocomplete="off" action="#" th:action="@{/register}" th:object="${user}" method="post">
+
+    <label>Name </label>
+    <input type="text" id="firstName" placeholder="First Name" th:field="*{firstName}" class="form-control"/><br/>
+
+    <label>Surname</label>
+    <input type="text" id="lastName" placeholder="Last Name" th:field="*{lastName}" class="form-control"/><br/>
+
+
+    <label>E-Mail</label>
+    <input type="text" id="email" placeholder=" Email" th:field="*{email}" class="form-control"/><br/>
+
+    <label>User Name</label>
+    <input type="text" id="username" placeholder=" Username" th:field="*{username}" class="form-control"/><br/>
+
+
+    <label>Password</label>
+    <input type="password" id="password" placeholder=" Password" th:field="*{password}" class="form-control"/><br/>
+
+    <button type="submit" class="btn btn-success text-center form-control">Save</button>
+
+
+  </form>
+  <div class="margin-top20 text-center"><a th:href="@{/login}">Go to Home Page</a></div>
+</div>
+</body>
+</html>

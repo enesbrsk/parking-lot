@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee Management System</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:insert=" fragments/header :: navbar ">
+</div>
+
+<div class="container" style="margin: auto;">
+    <h1>Check In</h1>
+    <hr>
+    <h2>Save Check In</h2>
+
+    <form action="#"  style=" margin-top: 20px;padding-bottom: 10px" th:action="@{/create-check-in}"  th:object="${parkingArea}" method="POST">
+
+        <label for="vehicle">Parking Area</label>
+        <select class="form-control" id="parkingArea" name="parkingArea">
+            <option value="">Select Vehicle</option>
+            <option th:each="parking : ${checkInParking}"
+                    th:value="${parking.id}"
+                    th:text="${parking.name}">
+            </option>
+        </select>
+
+        <label for="vehicle">Vehicle</label>
+        <select class="form-control" id="vehicle" name="vehicle">
+            <option value="">Select Vehicle</option>
+            <option th:each="vehicle : ${checkInVehicle}"
+                    th:value="${vehicle.id}"
+                    th:text="${vehicle.licensePlate}">
+            </option>
+        </select>
+
+        <button type="submit" class="btn btn-info col-2">Save Check In</button>
+    </form>
+    <hr>
+</div>
+</body>
+</html>

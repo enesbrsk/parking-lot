@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Employee</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:insert=" fragments/header :: navbar ">
+</div>
+
+<div class="container my-2" align="center">
+    <a th:href="@{/add-check-out}" class="btn btn-primary btn-sm mb-3" >Add Check Out</a>
+
+    <h3> Check Out</h3>
+    <table style="width:100%" border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>License Plate</th>
+            <th>Parking Area Name</th>
+            <th>Check In Date</th>
+            <th>Check Out Date</th>
+            <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="checkOut:${allCheckOut}">
+            <td th:text="${checkOut.checkIn.vehicle.licensePlate}"></td>
+            <td th:text="${checkOut.checkIn.parkingArea.name}"></td>
+            <td th:text="${checkOut.checkIn.checkInDate}"></td>
+            <td th:text="${checkOut.checkOutDate}"></td>
+            <td th:text="${checkOut.fee}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

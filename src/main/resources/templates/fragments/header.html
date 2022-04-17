@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NavigationBar</title>
+
+</head>
+<body>
+
+<nav th:fragment="navbar" class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/parking-area}">Parking Area Demo</a>
+        </div>
+        <ul class="nav navbar-nav">
+
+            <li><a class="nav-link" th:href="@{/addnew}">Add Parking Area</a></li>
+            <li><a class="nav-link" th:href="@{/all-vehicle}">Vehicle</a></li>
+            <li><a class="nav-link" th:href="@{/list-check-in}">Check In</a></li>
+            <li><a class="nav-link" th:href="@{/list-check-out}">Check Out</a></li>
+
+        </ul>
+    </div>
+</nav>
+
+</body>
+</html>
